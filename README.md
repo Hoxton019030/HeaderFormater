@@ -1,6 +1,6 @@
 # HEADERFORMATER
 
-http://hoxtonhsu.com/HeaderFormater/
+http://hoxtonhsu.com/RequestHeaderFormater/
 
 <img width="1012" alt="image" src="https://github.com/Hoxton019030/HeaderFormater/assets/98711945/3173d84c-7624-4200-81c0-e0bfaf5eefad">
 
