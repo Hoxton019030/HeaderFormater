@@ -2,6 +2,7 @@
 
 http://hoxtonhsu.com/HeaderFormater/
 
+<img width="1012" alt="image" src="https://github.com/Hoxton019030/HeaderFormater/assets/98711945/3173d84c-7624-4200-81c0-e0bfaf5eefad">
 
 厭倦了一直要從網頁上複製header貼到postman時，要一直刪除換行符的日子嗎？
 
