@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .formatted-text {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <style>
+        .formatted-text {
+            font-family: Arial, sans-serif;
+            max-width: 1500px;
+            max-height: 1500px;
+            border: 1px solid black;
+            padding: 10px;
+            display: inline-block;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="inputText">把你複製下來的cookie放這邊：</label>
+        <br>
+        <label for="inputText">Put the cookies you copied from your browser here:：</label>
+        <br>
+        <textarea id="inputText" rows="4" cols="50"></textarea>
+        <br>
+        <button onclick="formatText()">排版</button>
+    </div>
+    <div>
+        <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
+        <p>Copy the format below, and you can paste them into Postman in bulk</p>
+    </div>
+    <button onclick="copyToClipboard()">複製</button>
+    <br>
+    <pre class="formatted-text" id="outputText"></pre>
+    
+
+    <script>
+        function formatText() {
+            const inputText = document.getElementById("inputText").value;
+            const lines = inputText.split('\n');
+            let formattedText = "";
+
+            for (let i = 0; i < lines.length; i++) {
+                const trimmedLine = lines[i].trim();
+                if (i % 2 === 0) {
+                    formattedText += trimmedLine;
+                } else {
+                    formattedText += trimmedLine + "\n";
+                }
+
+                if (i % 2 === 0 && i < lines.length - 2) {
+                    formattedText += " ";
+                }
+            }
+
+            // Remove a space after the colon on each line
+            formattedText = formattedText.replace(/:\s/g, ':');
+
+            document.getElementById("outputText").textContent = formattedText;
+        }
+
+        function copyToClipboard() {
+            const outputText = document.getElementById("outputText");
+            const textArea = document.createElement("textarea");
+            textArea.value = outputText.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+        }
+    </script>
+</body>
+
+</html>
