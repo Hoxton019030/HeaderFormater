@@ -3,19 +3,26 @@
 
 <head>
     <style>
-        .formatted-text {
-            font-family: Arial, sans-serif;
-        }
-    </style>
-    <style>
-        .formatted-text {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            max-height: 1500px;
+        #inputText {
+            width: 500px;
+            height: 200px;
+            display: inline-flexbox;
             border: 1px solid black;
             padding: 10px;
-            /* display: inline-block; */
+            display: inline-flexbox;
             overflow: auto;
+        }
+
+        .formatted-text {
+            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            padding: 10px;
+            display: inline-flexbox;
+            overflow: auto;
+
         }
     </style>
 </head>
@@ -26,20 +33,24 @@
         <br>
         <label for="inputText">Put the cookies you copied from your browser here:：</label>
         <br>
-        <textarea id="inputText" rows="4" cols="50" style="width: 500px;height: 500px;"></textarea>
+        <textarea id="inputText" rows="4" cols="50"></textarea>
         <br>
-        <button onclick="formatText()">排版</button>
+        <button onclick="formatText()">排版(Format)</button>
+        <button onclick="clearText()">清空(Claer)</button>
     </div>
     <div>
         <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
         <p>Copy the format below, and you can paste them into Postman in bulk</p>
     </div>
-    <button onclick="copyToClipboard()">複製</button>
+    <button onclick="copyToClipboard()">複製(Copy)</button>
     <br>
-    <pre class="formatted-text" id="outputText"></pre>
-    
+    <textarea class="formatted-text" id="outputText" rows="4" cols="50"></textarea>
+
 
     <script>
+        function clearText() {
+            document.getElementById("inputText").value = "";
+        }
         function formatText() {
             const inputText = document.getElementById("inputText").value;
             const lines = inputText.split('\n');
@@ -72,7 +83,7 @@
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            
+
         }
     </script>
 </body>
