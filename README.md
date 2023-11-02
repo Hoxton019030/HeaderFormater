@@ -17,4 +17,4 @@ This tool will convert the Request Headers you copied from the webpage into a bu
 
 
 
-![iShot_2023-11-02_16 05 59](https://github.com/Hoxton019030/HeaderFormater/assets/98711945/848bda2a-2e7e-491a-9762-8860b1cbd292)
+![iShot_2023-11-02_16.16.03](https://i.imgur.com/HMvtnnB.gif)
