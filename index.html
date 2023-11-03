@@ -40,20 +40,28 @@
             max-width: 1000px;
             max-height: 1000px;
             overflow: auto;
+            white-space: nowrap;
         }
 
         .card {
-            margin: 10px;
-            display: inline-block;
+            display: inline;
             /* Display cards horizontally */
+            max-width: 300px;
+            /* Adjust the maximum width as needed */
+            /* white-space: nowrap; */
+            /* Prevent text from wrapping */
+            /* overflow-x: auto; */
         }
 
         #histoty-item {
             display: inline;
         }
 
-        .delete-button{
-            margin: 0 10px;
+        .delete-button {
+            /* margin: 0 10px; */
+            margin-left: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
         }
     </style>
     <script>
@@ -98,7 +106,7 @@
             // Create a delete button for the history item
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "Delete";
-            deleteButton.className = "delete-button";
+            deleteButton.className = "delete-button btn btn-danger btn-sm";
             deleteButton.addEventListener("click", function () {
                 historyDiv.removeChild(historyItem);
             });
