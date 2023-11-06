@@ -49,8 +49,8 @@
             margin-left: 30px;
             max-width: 1000px;
             max-height: 1000px;
-            overflow: auto;
-            white-space: nowrap;
+            /* overflow: auto; */
+            /* white-space: nowrap; */
         }
 
         .card {
@@ -85,6 +85,12 @@
             align-items: center;
             /* 垂直置中 */
         }
+
+        textarea {
+            resize: none;
+            width: 3000px;
+            height: 500px;
+        }
     </style>
     <script>
         function clearText() {
@@ -93,7 +99,7 @@
         function formatText() {
 
             const inputText = document.getElementById("inputText").value;
-            if(inputText==""){
+            if (inputText == "") {
                 return;
             }
             const lines = inputText.split('\n');
@@ -125,7 +131,7 @@
             historyItem.className = "history-item";
 
             // Create a card for the history item content
-            const formattedHistory = document.createElement("div");
+            const formattedHistory = document.createElement("textarea");
             formattedHistory.textContent = formattedText;
             formattedHistory.className = "card";
 
