@@ -1,0 +1,89 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    /* 這將使父元素佔滿整個視窗高度，以便在視窗中垂直置中 */
+    /* text-align: center; */
+    /* 文本水平置中 */
+}
+
+#inputText {
+    width: 500px;
+    height: 200px;
+    display: inline-flexbox;
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-flexbox;
+    overflow: auto;
+}
+
+.formatted-text {
+    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    /* padding: 10px; */
+    display: inline-flexbox;
+    overflow: auto;
+    /* margin: 10px; */
+
+}
+
+.input-zone {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+
+
+#history {
+    margin-left: auto;
+    /* 如果需要左边距的话 */
+}
+
+.card {
+    display: inline;
+    max-width: 300px;
+}
+
+#histoty-item {
+    display: inline;
+}
+
+.delete-button {
+    /* margin: 0 10px; */
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.copy-success-message {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-left: 10px;
+    /* 設置左側的間距，使其與按鈕分開 */
+}
+
+.copy-zone {
+    display: flex;
+    align-items: center;
+    /* 垂直置中 */
+}
+
+textarea {
+    resize: none;
+    width: 3000px;
+    height: 500px;
+}

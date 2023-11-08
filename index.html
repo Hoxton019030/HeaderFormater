@@ -3,300 +3,89 @@
 
 <head>
     <title>Request Header Formater</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" href="https://svgsilh.com/svg/2025562.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <style>
-        .center-text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* height: 100vh; */
-            /* 這將使父元素佔滿整個視窗高度，以便在視窗中垂直置中 */
-            /* text-align: center; */
-            /* 文本水平置中 */
-        }
 
-        #inputText {
-            width: 500px;
-            height: 200px;
-            display: inline-flexbox;
-            border: 1px solid black;
-            padding: 10px;
-            display: inline-flexbox;
-            overflow: auto;
-        }
-
-        .formatted-text {
-            font-family: Arial, sans-serif;
-            font-family: Arial, sans-serif;
-            width: 500px;
-            height: 500px;
-            border: 1px solid black;
-            padding: 10px;
-            display: inline-flexbox;
-            overflow: auto;
-            margin: 10px;
-
-        }
-
-        .test {
-            display: flex;
-            margin: 10px;
-        }
-
-        #history {
-            margin-left: 30px;
-            max-width: 1000px;
-            max-height: 1000px;
-            /* overflow: auto; */
-            /* white-space: nowrap; */
-        }
-
-        .card {
-            display: inline;
-            max-width: 300px;
-        }
-
-        #histoty-item {
-            display: inline;
-        }
-
-        .delete-button {
-            /* margin: 0 10px; */
-            margin-left: 10px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-
-        .copy-success-message {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            margin-left: 10px;
-            /* 設置左側的間距，使其與按鈕分開 */
-        }
-
-        .copy-zone {
-            display: flex;
-            align-items: center;
-            /* 垂直置中 */
-        }
-
-        textarea {
-            resize: none;
-            width: 3000px;
-            height: 500px;
-        }
-    </style>
-    <script>
-        function clearText() {
-            document.getElementById("inputText").value = "";
-        }
-        function formatText() {
-
-            const inputText = document.getElementById("inputText").value;
-            if (inputText == "") {
-                return;
-            }
-            const lines = inputText.split('\n');
-            let formattedText = "";
-
-            for (let i = 0; i < lines.length; i++) {
-                const trimmedLine = lines[i].trim();
-                if (i % 2 === 0) {
-                    formattedText += trimmedLine;
-                } else {
-                    formattedText += trimmedLine + "\n";
-                }
-
-                if (i % 2 === 0 && i < lines.length - 2) {
-                    formattedText += " ";
-                }
-            }
-
-            // Remove a space after the colon on each line
-            formattedText = formattedText.replace(/:\s/g, ':');
-
-            document.getElementById("outputText").textContent = formattedText;
-
-
-
-            // Create a new history item
-            const historyDiv = document.getElementById("history");
-            const historyItem = document.createElement("div");
-            historyItem.className = "history-item";
-
-            // Create a card for the history item content
-            const formattedHistory = document.createElement("textarea");
-            formattedHistory.textContent = formattedText;
-            formattedHistory.className = "card";
-
-            // Create a delete button for the history item
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Delete";
-            deleteButton.className = "delete-button btn btn-danger btn-sm";
-            deleteButton.addEventListener("click", function () {
-                historyDiv.removeChild(historyItem);
-            });
-
-            // Append the formatted text and delete button to the history item
-            historyItem.appendChild(formattedHistory);
-            historyItem.appendChild(deleteButton);
-
-            // Append the history item to the history section
-            historyDiv.appendChild(historyItem);
-        }
-
-        function copyToClipboard() {
-            const outputText = document.getElementById("outputText");
-            const textArea = document.createElement("textarea");
-            textArea.value = outputText.textContent;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-
-            const copySuccessMessage = document.getElementById("copySuccessMessage");
-            copySuccessMessage.style.opacity = 1;
-
-            // 設置計時器，在2秒後淡出訊息
-            setTimeout(() => {
-                copySuccessMessage.style.opacity = 0;
-            }, 2000);
-
-        }
-    </script>
 </head>
 
-<div class="test">
 
-
-    <div>
-        <label for="inputText">把你複製下來的cookie放這邊：</label>
-        <br>
-        <label for="inputText">Put the cookies you copied from your browser here:：</label>
-        <br>
-        <textarea class="form-control" id="inputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:
+<div class="main">
+    <div class="input-zone">
+        <div>
+            <label for="inputText">把你複製下來的cookie放這邊：</label>
+            <br>
+            <label for="inputText">Put the cookies you copied from your browser here:：</label>
+            <br>
+            <textarea class="form-control" id="inputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:
 ?0
 Sec-Ch-Ua-Platform:
 Window"></textarea>
-        <br>
-        <button type="button" class="btn btn-primary" onclick="formatText()">排版(Format)</button>
-        <button type="button" class="btn btn-primary" onclick="clearText()">清空(Claer)</button>
-    </div>
-    <div id="history">
-        歷史資料
-
-    </div>
-</div>
-
-<div style="margin: 10px;">
-    <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
-    <p>Copy the format below, and you can paste them into Postman in bulk</p>
-    <div class="copy-zone">
-        <button type="button" class="btn btn-primary" onclick="copyToClipboard()">複製(Copy)</button>
-        <div id="copySuccessMessage" class="copy-success-message">
-            已複製成功
+            <br>
+            <button type="button" class="btn btn-primary" onclick="formatText()">排版(Format)</button>
+            <button type="button" class="btn btn-primary" onclick="clearText()">清空(Claer)</button>
         </div>
-    </div>
-</div>
 
-<textarea class="formatted-text" id="outputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:?0
+    </div>
+
+    <div class="copy" style="margin: 10px;">
+        <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
+        <p>Copy the format below, and you can paste them into Postman in bulk</p>
+        <div class="copy-zone">
+            <button type="button" class="btn btn-primary" onclick="copyToClipboard()">複製(Copy)</button>
+            <div id="copySuccessMessage" class="copy-success-message">
+                已複製成功
+            </div>
+        </div>
+        <textarea class="formatted-text" id="outputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:?0
 Sec-Ch-Ua-Platform:Windows"></textarea>
+    </div>
+    
+    <div class="history" id="history">
+        歷史資料
+    </div>
 
 
 
 
-</body>
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-white text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-
-        <!-- Right -->
-        <div>
-            <a href="" class="me-4 link-secondary">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 link-secondary">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-        <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3 text-secondary"></i>Hoxton Hsu
-                    </h6>
-                    <p>
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Links
-                    </h6>
-                    <p>
-                        <a href="https://github.com/Hoxton019030" class="text-reset">MyGitHub</a>
-                    </p>
-                    <p>
-                        <a href="https://hoxtonhsu.com/" class="text-reset">MyBlog</a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/Hoxton019030/RequestHeaderFormater" class="text-reset">This
-                            Project Repository</a>
-                    </p>
+    </body>
+    <footer class="text-center text-lg-start bg-white text-muted">
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        </section>
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3 text-secondary"></i>Hoxton Hsu
+                        </h6>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Links
+                        </h6>
+                        <p>
+                            <a href="https://github.com/Hoxton019030" class="text-reset">MyGitHub</a>
+                        </p>
+                        <p>
+                            <a href="https://hoxtonhsu.com/" class="text-reset">MyBlog</a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/Hoxton019030/RequestHeaderFormater" class="text-reset">This
+                                Project Repository</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <!-- Grid row -->
+        </section>
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/"></a>
         </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
-
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/"></a>
-    </div>
-    <!-- Copyright -->
-</footer>
-<!-- Footer -->
+    </footer>
+</div>
 
 </html>
