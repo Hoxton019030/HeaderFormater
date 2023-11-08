@@ -32,6 +32,7 @@ function formatText() {
         dataArray.pop()
     }
     dataArray.unshift(formattedText);
+    console.log(dataArray.length)
     const historyEntryDiv = document.getElementsByClassName("history-entry");
     for (let i = 0; i < historyEntryDiv.length; i++) {
         historyEntryDiv[i].innerHTML = ""; // 清空每个元素的内容
