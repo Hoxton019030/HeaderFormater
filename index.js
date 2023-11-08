@@ -28,7 +28,7 @@ function formatText() {
     // Remove a space after the colon on each line
     formattedText = formattedText.replace(/:\s/g, ':');
     document.getElementById("outputText").textContent = formattedText;
-    if (dataArray.length >= 10) {
+    if (dataArray.length >= 7) {
         dataArray.pop()
     }
     dataArray.unshift(formattedText);
