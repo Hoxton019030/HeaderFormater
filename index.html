@@ -12,45 +12,40 @@
 </head>
 
 
-<div class="main">
-    <div class="input-zone">
-        <div>
-            <label for="inputText">把你複製下來的cookie放這邊：</label>
-            <br>
-            <label for="inputText">Put the cookies you copied from your browser here:：</label>
-            <br>
-            <textarea class="form-control" id="inputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:
+<body>
+    <div class="main">
+        <div class="data">
+            <div class="input">
+                <div>
+                    <label for="inputText">把你複製下來的cookie放這邊：</label>
+                    <br>
+                    <label for="inputText">Put the cookies you copied from your browser here:：</label>
+                    <br>
+                    <textarea class="form-control" id="inputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:
 ?0
 Sec-Ch-Ua-Platform:
 Window"></textarea>
-            <br>
-            <button type="button" class="btn btn-primary" onclick="formatText()">排版(Format)</button>
-            <button type="button" class="btn btn-primary" onclick="clearText()">清空(Claer)</button>
-        </div>
-
-    </div>
-
-    <div class="copy" style="margin: 10px;">
-        <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
-        <p>Copy the format below, and you can paste them into Postman in bulk</p>
-        <div class="copy-zone">
-            <button type="button" class="btn btn-primary" onclick="copyToClipboard()">複製(Copy)</button>
-            <div id="copySuccessMessage" class="copy-success-message">
-                已複製成功
+                    <br>
+                    <button type="button" class="btn btn-primary" onclick="formatText()">排版(Format)</button>
+                    <button type="button" class="btn btn-primary" onclick="clearText()">清空(Claer)</button>
+                </div>
+            </div>
+            <div class="output">
+                <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
+                <p>Copy the format below, and you can paste them into Postman in bulk</p>
+                <div class="copy-zone">
+                    <button type="button" class="btn btn-primary" onclick="copyToClipboard()">複製(Copy)</button>
+                    <div id="copySuccessMessage" class="copy-success-message">
+                        已複製成功
+                    </div>
+                </div>
+                <textarea class="formatted-text" id="outputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:?0
+Sec-Ch-Ua-Platform:Windows"></textarea>
             </div>
         </div>
-        <textarea class="formatted-text" id="outputText" rows="4" cols="50" placeholder="Sec-Ch-Ua-Mobile:?0
-Sec-Ch-Ua-Platform:Windows"></textarea>
+        <div class="history">History Content
+        </div>
     </div>
-    
-    <div class="history" id="history">
-        歷史資料
-    </div>
-
-
-
-
-    </body>
     <footer class="text-center text-lg-start bg-white text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         </section>
@@ -86,6 +81,6 @@ Sec-Ch-Ua-Platform:Windows"></textarea>
             <a class="text-reset fw-bold" href="https://mdbootstrap.com/"></a>
         </div>
     </footer>
-</div>
+</body>
 
 </html>

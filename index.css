@@ -1,16 +1,38 @@
-.main {
-    display: flex;
-    flex-direction: column;
+.main{
+    margin: 10px;
+}
+.data,
+.history {
+    display: inline-block;
+    vertical-align: top;
+    /* 垂直对齐方式，可根据需要进行调整 */
+    /* 这里可以添加其他样式，比如 padding 或 margin，以控制它们的间距和样式 */
 }
 
-.center-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    /* 這將使父元素佔滿整個視窗高度，以便在視窗中垂直置中 */
-    /* text-align: center; */
-    /* 文本水平置中 */
+.data {
+    /* background-color: #e0e0e0; */
+    /* Data部分背景色 */
+}
+
+.input {
+    width: 500px;
+    height: 350px;
+    /* background-color: #c0c0c0; */
+    /* Input部分背景色 */
+}
+
+.output {
+    width: 500px;
+    height: 500px;
+    /* background-color: #a0a0a0; */
+    /* Output部分背景色 */
+}
+
+.history {
+    width: 500px;
+    height: 500px;
+    /* background-color: #d0d0d0; */
+    /* float: right; */
 }
 
 #inputText {
@@ -40,13 +62,15 @@
     display: flex;
     flex-direction: row;
     margin: 10px;
+    justify-content: space-between;
+    /* 在 input-zone 中右侧对齐 */
 }
 
 
 
 #history {
-    margin-left: auto;
-    /* 如果需要左边距的话 */
+    margin-left: 10px
+        /* 如果需要左边距的话 */
 }
 
 .card {
@@ -86,4 +110,4 @@ textarea {
     resize: none;
     width: 3000px;
     height: 500px;
-}
+} */

@@ -31,7 +31,7 @@ function formatText() {
 
 
     // Create a new history item
-    const historyDiv = document.getElementById("history");
+    const historyDiv = document.getElementsByClassName("history");
     const historyItem = document.createElement("div");
     historyItem.className = "history-item";
 
@@ -45,7 +45,7 @@ function formatText() {
     deleteButton.textContent = "Delete";
     deleteButton.className = "delete-button btn btn-danger btn-sm";
     deleteButton.addEventListener("click", function () {
-        historyDiv.removeChild(historyItem);
+        historyDiv[0].removeChild(historyItem);
     });
 
     // Append the formatted text and delete button to the history item
@@ -53,7 +53,7 @@ function formatText() {
     historyItem.appendChild(deleteButton);
 
     // Append the history item to the history section
-    historyDiv.appendChild(historyItem);
+    historyDiv[0].appendChild(historyItem);
 }
 
 function copyToClipboard() {
