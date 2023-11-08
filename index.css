@@ -16,14 +16,14 @@
 
 .input {
     width: 500px;
-    height: 350px;
+    height: 30%;
     /* background-color: #c0c0c0; */
     /* Input部分背景色 */
 }
 
 .output {
     width: 500px;
-    height: 500px;
+    height: 20%;
     /* background-color: #a0a0a0; */
     /* Output部分背景色 */
 }
