@@ -1,0 +1,114 @@
+.main{
+    margin: 10px;
+}
+.data,
+.history {
+    display: inline-block;
+    vertical-align: top;
+    /* 垂直对齐方式，可根据需要进行调整 */
+    /* 这里可以添加其他样式，比如 padding 或 margin，以控制它们的间距和样式 */
+}
+
+.data {
+    /* background-color: #e0e0e0; */
+    /* Data部分背景色 */
+}
+
+.input {
+    width: 500px;
+    height: 30%;
+    /* background-color: #c0c0c0; */
+    /* Input部分背景色 */
+}
+
+.output {
+    width: 500px;
+    height: 20%;
+    /* background-color: #a0a0a0; */
+    /* Output部分背景色 */
+}
+
+.history {
+    width: 500px;
+    height: 500px;
+    /* background-color: #d0d0d0; */
+    /* float: right; */
+}
+
+#inputText {
+    width: 500px;
+    height: 200px;
+    display: inline-flexbox;
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-flexbox;
+    overflow: auto;
+}
+
+.formatted-text {
+    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    /* padding: 10px; */
+    display: inline-flexbox;
+    overflow: auto;
+    /* margin: 10px; */
+
+}
+
+.input-zone {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-between;
+    /* 在 input-zone 中右侧对齐 */
+}
+
+
+
+.history {
+    margin-left: 10px
+        /* 如果需要左边距的话 */
+}
+
+.card {
+    display: inline;
+    max-width: 300px;
+}
+
+#histoty-item {
+    display: inline;
+}
+
+.delete-button {
+    /* margin: 0 10px; */
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.copy-success-message {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-left: 10px;
+    /* 設置左側的間距，使其與按鈕分開 */
+}
+
+.copy-zone {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+    /* 垂直置中 */
+}
+
+textarea {
+    resize: none;
+    width: 3000px;
+    height: 500px;
+} 
