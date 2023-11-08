@@ -68,7 +68,7 @@
 
 
 
-#history {
+.history {
     margin-left: 10px
         /* 如果需要左边距的话 */
 }
@@ -103,6 +103,7 @@
 .copy-zone {
     display: flex;
     align-items: center;
+    margin: 0 0 10px 0;
     /* 垂直置中 */
 }
 
@@ -110,4 +111,4 @@ textarea {
     resize: none;
     width: 3000px;
     height: 500px;
-} */
+} 

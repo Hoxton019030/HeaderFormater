@@ -25,7 +25,6 @@ function formatText() {
 
     // Remove a space after the colon on each line
     formattedText = formattedText.replace(/:\s/g, ':');
-    alert(formatText)
 
     document.getElementById("outputText").textContent = formattedText;
 
