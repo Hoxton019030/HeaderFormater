@@ -1,6 +1,8 @@
 <script>
 // import TodoList from "./TodoList.vue";
 import InputDiv from "./InputDiv.vue";
+import CopyDiv from "./CopyDiv.vue"
+
 export default {
   data() {},
   methods: {
@@ -22,11 +24,12 @@ export default {
   },
   components: { 
     // TodoList, 
-    InputDiv},
+    InputDiv,CopyDiv},
 };
 </script>
 
 <template>
   <todo-list></todo-list>
-  <input-div></input-div>
+  <Input-div></Input-div>
+  <CopyDiv></CopyDiv>
 </template>

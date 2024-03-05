@@ -76,7 +76,7 @@ function copyToClipboard() {
     document.body.removeChild(textArea);
 
     const copySuccessMessage = document.getElementById("copySuccessMessage");
-    copySuccessMessage.style.opacity = 1;
+    copySuccessMessage.style.opaciＤty = 1;
 
     // 設置計時器，在2秒後淡出訊息
     setTimeout(() => {
