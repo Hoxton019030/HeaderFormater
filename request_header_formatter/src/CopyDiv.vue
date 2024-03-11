@@ -4,55 +4,75 @@
         <p>Copy the format below, and you can paste them into Postman in bulk</p>
         <div class="copy-zone">
             <button type="button" class="btn btn-primary" @click="copyToClipboard()">複製(Copy)</button>
-            <!-- <transition name="fade"> -->
+            <transition name="fade">
                 <div v-if="isCopySuccess" id="copySuccessMessage" class="copy-success-message">
                     已複製成功
                 </div>
-            <!-- </transition> -->
-
+            </transition>
         </div>
-        <textarea v-model="outputText" class="formatted-text" id="outputText" rows="4" cols="50" placeholder="Sec-Ch-Ua:Chromium;v=118, Google Chrome;v=118, Not=A?Brand;v=99
+        <textarea v-model="storeData" class="formatted-text" id="outputText" rows="4" cols="50" placeholder="Sec-Ch-Ua:Chromium;v=118, Google Chrome;v=118, Not=A?Brand;v=99
 Sec-Ch-Ua-Mobile:?0
 Sec-Ch-Ua-Platform:Windows"></textarea>
     </div>
 </template>
 
 <script setup>
-
-import { ref } from 'vue';
-let outputText = ref('')
-let isCopySuccess = ref(false)
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex';
+const store = useStore();
+let outputText = ref('');
+let isCopySuccess = ref(false);
 
 const copyToClipboard = () => {
-    navigator.clipboard.writeText(outputText.value)
+    navigator.clipboard.writeText(outputText.value);
     isCopySuccess.value = true;
     setTimeout(() => {
         isCopySuccess.value = false;
-    }, 2000); // Hide the message after 2 seconds
-}
+    }, 1000); // Hide the message after 2 seconds
+};
+
+const storeData = computed(() => store.state.data);
 </script>
 
 <style scoped>
 .copy-success-message {
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px;
+    padding: 8px;
     border-radius: 5px;
-    opacity: 50;
-    transition: opacity 0.3s;
+    opacity: 1;
+    transition: opacity 0.5s;
     margin-left: 10px;
-    /* 設置左側的間距，使其與按鈕分開 */
 }
+
 .copy-zone {
     display: flex;
     align-items: center;
     margin: 0 0 10px 0;
-    /* 垂直置中 */
 }
+
 .output {
     width: 500px;
     height: 20%;
-    /* background-color: #a0a0a0; */
-    /* Output部分背景色 */
+}
+
+textarea {
+    resize: none;
+    width: 1000px;
+}
+
+.formatted-text {
+    font-family: Arial, sans-serif;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+    display: inline-flexbox;
+    overflow: auto;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0;
 }
 </style>

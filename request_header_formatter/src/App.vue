@@ -4,7 +4,7 @@ import InputDiv from "./InputDiv.vue";
 import CopyDiv from "./CopyDiv.vue"
 
 export default {
-  data() {},
+  data() { },
   methods: {
     data() {
       return {
@@ -22,14 +22,23 @@ export default {
       },
     },
   },
-  components: { 
+  components: {
     // TodoList, 
-    InputDiv,CopyDiv},
+    InputDiv, CopyDiv
+  },
 };
 </script>
 
 <template>
-  <todo-list></todo-list>
-  <Input-div></Input-div>
-  <CopyDiv></CopyDiv>
+  <div class="main">
+    <Input-div></Input-div>
+    <CopyDiv></CopyDiv>
+  </div>
 </template>
+
+<style scoped>
+.main{
+    margin: 10px;
+}
+
+</style>
