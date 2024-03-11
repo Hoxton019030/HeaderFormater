@@ -13,7 +13,7 @@ Sec-Ch-Ua-Platform:
 Windows"></textarea>
             <br>
             <button type="button" class="btn btn-primary" @click="formatText()">排版(Format)</button>
-            <button type="button" class="btn btn-primary" @click="clearText()">清空(Claer)</button>
+            <button type="button" class="btn btn-primary" @click="clearText()">清空(Clear)</button>
         </div>
     </div>
 </template>
