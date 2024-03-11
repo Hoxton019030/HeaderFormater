@@ -60,7 +60,6 @@ const formatText = () => {
     store.
     commit('setData',formattedText)
     let result=computed(()=>store.state.data)
-    alert(result.value)
 
 }
 
