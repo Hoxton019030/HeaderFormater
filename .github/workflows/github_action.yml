@@ -31,6 +31,9 @@ jobs:
           cd request_header_formatter
           npm install
           npm run build 
+          pwd
+          ls
+          
           
       # Runs a single command using the runners shell
       - name: Deploy
