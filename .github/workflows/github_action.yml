@@ -28,6 +28,8 @@ jobs:
       
       - name: Install & Build # 執行指令
         run: |
+          ls
+          pwd
           cd request_header_formatter
           npm install
           npm run build 
