@@ -1,5 +1,6 @@
 <template>
     <div class="output">
+        <p>Version 1.1.1</p>
         <p>複製下面的格式，就可以到 PostMan bulk 貼上了</p>
         <p>Copy the format below, and you can paste them into Postman in bulk</p>
         <div class="copy-zone">
