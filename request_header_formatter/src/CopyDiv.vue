@@ -20,11 +20,10 @@ Sec-Ch-Ua-Platform:Windows"></textarea>
 import { ref, computed } from 'vue';
 import { useStore } from 'vuex';
 const store = useStore();
-let outputText = ref('');
 let isCopySuccess = ref(false);
 
 const copyToClipboard = () => {
-    navigator.clipboard.writeText(outputText.value);
+    navigator.clipboard.writeText(store.getters.getData);
     isCopySuccess.value = true;
     setTimeout(() => {
         isCopySuccess.value = false;

@@ -57,8 +57,7 @@ const formatText = () => {
         }
     }
     formattedText = formattedText.replace(/:\s/g, ':');
-    store.
-    commit('setData',formattedText)
+    store.commit('setData',formattedText)
     let result=computed(()=>store.state.data)
 
 }
